@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transition动画</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            margin: 30px auto 0;
+        }
+
+        .cont {
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .box {
+            font-size: 14px;
+            text-align: center;
+            line-height: 25px;
+            color: #000;
+            /* 文字动画 */
+            transition: color 1s linear 0s;
+        }
+
+        .border {
+            width: 0px;
+            height: 2px;
+            margin: 0 auto;
+            background-color: brown;
+            /* 下划线动画 */
+            transition: width 1s linear 0s;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto 0;
+        }
+
+        /* 点击添加并删除的样式 */
+        .action {
+            margin: 0 auto;
+            color: brown;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="cont">
+            <div class="box">学习使我快乐</div>
+            <div class="border"></div>
+        </div>
+        <button class="button" onclick="buttonClick()">点击切换</button>
+    </div>
+
+</body>
+<script>
+    // 获取元素
+    var button = document.querySelector('.button');
+    var box = document.querySelector('.box');
+    var border = document.querySelector('.border');
+    // 点击事件
+    function buttonClick() {
+        // 判断是否有class，有则删除没有则添加
+        if (box.className.indexOf('action') !== -1) {
+            box.classList.remove("action");
+            border.classList.remove("action");
+        } else {
+            box.classList.add("action");
+            border.classList.add("action");
+
+        }
+    }
+
+</script>
+
+</html>
