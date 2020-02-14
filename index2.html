@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transition动画</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #efefef;
+        }
+
+        .wrap {
+            margin: 250px auto;
+        }
+
+        .cricular {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff;
+            text-align: center;
+            line-height: 50px;
+            font-size: 14px;
+            color: brown;
+        }
+
+        .big {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10000;
+        }
+
+        .bigcricular {
+            width: 80px;
+            height: 80px;
+            background-color: cornflowerblue;
+            line-height: 80px;
+            font-size: 16px;
+            color: darkseagreen;
+            cursor: pointer;
+        }
+
+        .vlog {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -25px;
+            transition: all .5s linear 0s;
+            z-index: -1;
+        }
+
+        .bird {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -25px;
+            transition: all .5s linear 0.1s;
+            z-index: -1;
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            margin-top: -25px;
+            margin-right: -25px;
+            transition: all .5s linear 0.2s;
+            z-index: -1;
+        }
+
+        .vlogTransition {
+            top: -20px;
+            left: -30px;
+        }
+
+        .birdTransition {
+            top: -45px;
+        }
+
+        .textTransition {
+            top: -20px;
+            right: -30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="cricular big" onclick="buttonClick()">
+            <div class="cricular bigcricular">点击菜单</div>
+            <div class="cricular vlog">菜单1</div>
+            <div class="cricular bird">菜单2</div>
+            <div class="cricular text">菜单3</div>
+        </div>
+    </div>
+</body>
+<script>
+    // 获取元素
+    var big = document.querySelector('.big');
+    var vlog = document.querySelector('.vlog');
+    var bird = document.querySelector('.bird');
+    var text = document.querySelector('.text');
+    // 点击事件
+    function buttonClick() {
+        // 判断是否有class，有则删除没有则添加
+        if (vlog.className.indexOf('vlogTransition') !== -1 && bird.className.indexOf('birdTransition') !== -1 &&
+            text.className.indexOf('textTransition') !== -1) {
+            vlog.classList.remove("vlogTransition");
+            bird.classList.remove("birdTransition");
+            text.classList.remove("textTransition");
+        } else {
+            vlog.classList.add("vlogTransition");
+            bird.classList.add("birdTransition");
+            text.classList.add("textTransition");
+
+        }
+    }
+
+</script>
+
+</html>
